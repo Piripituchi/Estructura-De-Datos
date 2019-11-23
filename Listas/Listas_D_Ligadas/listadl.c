@@ -58,20 +58,20 @@ eliminarListaDL (struct ListaDL **lista, int dato)
     {
       aux = aux->siguiente;
     }
-  if((*lista)->dato==dato){
-	  (*lista)=(*lista)->siguiente;
-	  aux->siguiente->anterior=NULL;
-  }
+  if ((*lista)->dato == dato)
+    {
+      (*lista) = (*lista)->siguiente;
+      aux->siguiente->anterior = NULL;
+      return;
+    }
   if (aux->siguiente == NULL)
     {
       aux->anterior->siguiente = NULL;
-      aux->anterior=NULL;
+      aux->anterior = NULL;
+      return;
     }
-  else
-    {
-      aux->siguiente->anterior = aux->anterior;
-      aux->anterior->siguiente = aux->siguiente;
-    }
-  free(aux);
+  aux->siguiente->anterior = aux->anterior;
+  aux->anterior->siguiente = aux->siguiente;
+  free (aux);
 
 }
